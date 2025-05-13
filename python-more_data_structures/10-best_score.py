@@ -2,10 +2,10 @@
 def best_score(a_dictionary):
     if a_dictionary is None:
         return None
-    best = 0
-    for i in a_dictionary.values():
-        if i > best:
-            best = i
-    dict_filtered = dict(filter(lambda x: x[1] == best, a_dictionary.items()))
-
-    return dict_filtered
+    best_key = ""
+    best_value = 0
+    for key in a_dictionary:
+        if best_value < a_dictionary[key]:
+            best_value = a_dictionary[key]
+            best_key = key
+    return best_key
