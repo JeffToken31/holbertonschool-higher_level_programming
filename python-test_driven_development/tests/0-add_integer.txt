@@ -1,0 +1,77 @@
+Test with integer, contain negatives numbers and blank
+
+>>> add_integer = __import__('0-add_integer').add_integer
+>>> add_integer(3, 2)
+5
+>>> add_integer(3, )
+101
+>>> add_integer(24)
+122
+>>> add_integer(24, -1)
+23
+>>> add_integer(-80, -1)
+-81
+>>> add_integer(-80, 54)
+-26
+
+Test with float, contain negatives numbers and blank
+
+>>> add_integer(-80.2, 54.8)
+-26
+>>> add_integer(-80.2)
+18
+>>> add_integer(0, -80.2)
+-80
+
+Test with divers type(str, bool, dict, list, tuples), None, empty, more than 2 args...
+
+>>> add_integer('Hello', 48)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/home/jeff/holbertonschool-higher_level_programming/python-test_driven_development/add.py", line 11, in add_integer
+    raise TypeError("a must be an integer")
+TypeError: a must be an integer
+>>> add_integer('Hello')
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/home/jeff/holbertonschool-higher_level_programming/python-test_driven_development/add.py", line 11, in add_integer
+    raise TypeError("a must be an integer")
+TypeError: a must be an integer
+>>> add_integer(test)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'test' is not defined
+>>> add_integer([1, 2], 68)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/home/jeff/holbertonschool-higher_level_programming/python-test_driven_development/add.py", line 11, in add_integer
+    raise TypeError("a must be an integer")
+TypeError: a must be an integer
+>>> add_integer(True, 68)
+69
+>>> add_integer(True, 68, None)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: add_integer() takes from 1 to 2 positional arguments but 3 were given
+>>> add_integer(68, None)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/home/jeff/holbertonschool-higher_level_programming/python-test_driven_development/add.py", line 13, in add_integer
+    raise TypeError("b must be an integer")
+TypeError: b must be an integer
+>>> add_integer()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: add_integer() missing 1 required positional argument: 'a'
+>>> add_integer((1, 2), 1)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/home/jeff/holbertonschool-higher_level_programming/python-test_driven_development/add.py", line 11, in add_integer
+    raise TypeError("a must be an integer")
+TypeError: a must be an integer
+>>> add_integer({'test': 4}, 1)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/home/jeff/holbertonschool-higher_level_programming/python-test_driven_development/add.py", line 11, in add_integer
+    raise TypeError("a must be an integer")
+TypeError: a must be an integer
