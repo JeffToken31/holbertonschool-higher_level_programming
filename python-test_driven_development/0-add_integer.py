@@ -1,7 +1,6 @@
 #!/usr/bin/python
 """
-Module who test a function
-It include doctest
+This module test a function, it include doctest.
 """
 def add_integer(a, b=98):
     """
