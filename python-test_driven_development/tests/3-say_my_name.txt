@@ -1,0 +1,68 @@
+>>> say_my_name = __import__('3-say_my_name').say_my_name
+
+Test for TypeError multi args...
+
+>>> say_my_name("john", 'bob')
+My name is john bob
+
+>>> say_my_name(John, 'Bob')
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'John' is not defined
+
+>>> say_my_name("John", 'Bob', "Jeff")
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: say_my_name() takes from 1 to 2 positional arguments but 3 were given
+
+>>> say_my_name("John", -3)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/home/jeff/holbertonschool-higher_level_programming/python-test_driven_development/3-say_my_name.py", line 13, in say_my_name
+    raise TypeError("last_name must be a string")
+TypeError: last_name must be a string
+
+>>> say_my_name("John" + "Bob", "Jeff")
+My name is JohnBob Jeff
+
+>>> say_my_name("John" + 3.14, "Jeff")
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: can only concatenate str (not "float") to str
+
+>>> say_my_name(("tuple"), "Jeff")
+My name is tuple Jeff
+
+>>> say_my_name({"John": "Dict"}, "Jeff")
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/home/jeff/holbertonschool-higher_level_programming/python-test_driven_development/3-say_my_name.py", line 11, in say_my_name
+    raise TypeError("first_name must be a string")
+TypeError: first_name must be a string
+
+>>> say_my_name(["List"], "Jeff")
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/home/jeff/holbertonschool-higher_level_programming/python-test_driven_development/3-say_my_name.py", line 11, in say_my_name
+    raise TypeError("first_name must be a string")
+TypeError: first_name must be a string
+
+>>> say_my_name("Jonh", None)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/home/jeff/holbertonschool-higher_level_programming/python-test_driven_development/3-say_my_name.py", line 13, in say_my_name
+    raise TypeError("last_name must be a string")
+TypeError: last_name must be a string
+>>> say_my_name("Jonh", True)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/home/jeff/holbertonschool-higher_level_programming/python-test_driven_development/3-say_my_name.py", line 13, in say_my_name
+    raise TypeError("last_name must be a string")
+TypeError: last_name must be a string
+>>> say_my_name()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: say_my_name() missing 1 required positional argument: 'first_name'
+>>> say_my_name("\n", "Jeff")
+My name is 
+ Jeff
