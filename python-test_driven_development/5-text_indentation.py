@@ -9,8 +9,11 @@ def text_indentation(text):
     """
     if not isinstance(text, str):
         raise TypeError("text must be a string")
-    for letters in text:
-        if letters == "." or letters == "?" or letters == ":":
-            print("{}\n".format(letters))
+    i = 0
+    while i < len(text):
+        if text[i] in ".?:":
+            print("{}\n".format(text[i]))
+            i += 2
         else:
-            print("{}".format(letters), end="")
+            print("{}".format(text[i]), end="")
+            i += 1
