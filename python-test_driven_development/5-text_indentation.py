@@ -3,6 +3,7 @@
 This module allows testing a function that prints a indeted text
 """
 
+
 def text_indentation(text):
     """
     This function prints a indeted text
@@ -13,7 +14,9 @@ def text_indentation(text):
     while i < len(text):
         if text[i] in ".?:":
             print("{}\n".format(text[i]))
-            i += 2
+            i += 1
+            if text[i] in " ":
+                i += 1
         else:
             print("{}".format(text[i]), end="")
             i += 1
