@@ -1,0 +1,55 @@
+>>> text_indentation = __import__('5-text_indentation').text_indentation
+
+-----------------------------------------------------
+Test with different type and various input format
+-----------------------------------------------------
+
+>>> text_indentation("test.coucou")
+test.
+
+coucou>>>
+
+coucou>>> text_indentation("test ? coucou: \n")
+test ?
+
+ coucou:
+
+ 
+>>>
+
+>>> text_indentation("\:\?\.test.")
+\:
+
+\?
+
+\.
+
+test.
+
+>>> text_indentation(56)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/home/jeff/holbertonschool-higher_level_programming/python-test_driven_development/5-text_indentation.py", line 11, in text_indentation
+    raise TypeError("text must be a string")
+TypeError: text must be a string
+
+>>> text_indentation(5.65)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/home/jeff/holbertonschool-higher_level_programming/python-test_driven_development/5-text_indentation.py", line 11, in text_indentation
+    raise TypeError("text must be a string")
+TypeError: text must be a string
+
+>>> text_indentation({'coucou': 2})
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/home/jeff/holbertonschool-higher_level_programming/python-test_driven_development/5-text_indentation.py", line 11, in text_indentation
+    raise TypeError("text must be a string")
+TypeError: text must be a string
+
+>>> text_indentation(["test."])
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/home/jeff/holbertonschool-higher_level_programming/python-test_driven_development/5-text_indentation.py", line 11, in text_indentation
+    raise TypeError("text must be a string")
+TypeError: text must be a string
