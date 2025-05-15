@@ -68,7 +68,7 @@ TypeError: a must be an integer
 >>> add_integer(True, 68)
 69
 
->>> add_integer(True, 68, None)
+>>> add_integer(False, 68, None)
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
 TypeError: add_integer() takes from 1 to 2 positional arguments but 3 were given
