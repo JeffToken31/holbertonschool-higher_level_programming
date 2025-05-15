@@ -3,28 +3,13 @@
 -----------------------------------------------------
 Test with different type and various input format
 -----------------------------------------------------
-
->>> text_indentation("test.coucou")
-test.
-
-coucou>>>
-
-coucou>>> text_indentation("test ? coucou: \n")
-test ?
-
- coucou:
-
- 
->>>
-
->>> text_indentation("\:\?\.test.")
-\:
-
-\?
-
-\.
-
-test.
+>>> text_indentation("one ?two:three.")
+one ?
+<BLANKLINE>
+two:
+<BLANKLINE>
+three.
+<BLANKLINE>
 
 >>> text_indentation(56)
 Traceback (most recent call last):
