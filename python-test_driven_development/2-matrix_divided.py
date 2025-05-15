@@ -2,6 +2,8 @@
 """
 This module test function who divide all elements of matrix
 """
+
+
 def matrix_divided(matrix, div):
     """
     Function divide elements of matrix
@@ -9,7 +11,9 @@ def matrix_divided(matrix, div):
     for row in matrix:
         for i in row:
             if not isinstance(i, float) and not isinstance(i, int):
-                raise TypeError("matrix must be a matrix (list of lists) of integers/floats")
+                raise TypeError(
+                    "matrix must be a matrix"
+                    " (list of lists) of integers/floats")
     for i in range(len(matrix) - 1):
         if len(matrix[i]) != len(matrix[i + 1]):
             raise TypeError("Each row of the matrix must have the same size")
