@@ -31,6 +31,22 @@ Hello.
 ?
 <BLANKLINE>
 
+>>> text_indentation("Hello..   ?     .")
+Hello.
+<BLANKLINE>
+.
+<BLANKLINE>
+?
+<BLANKLINE>
+.
+<BLANKLINE>
+
+>>> text_indentation(".")
+.
+<BLANKLINE>
+
+>>> text_indentation("")
+
 >>> text_indentation(56)
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
