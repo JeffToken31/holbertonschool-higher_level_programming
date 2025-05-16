@@ -108,10 +108,23 @@ without ponctuation
 
 >>> text_indentation("lkerjfmoaeidhvfomekjflùkqsjdf!lkmjùpze.zec_hzidsuchmoaz")
 lkerjfmoaeidhvfomekjflùkqsjdf!lkmjùpze.
-
+<BLANKLINE>
 zec_hzidsuchmoaz
 
 >>> text_indentation("5.6", "second")
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
 TypeError: text_indentation() takes 1 positional argument but 2 were given
+
+>>> text_indentation('.qsegfq.sfdq        :zegqsdvcqsd  .   ?trevbsqd<EEZADIhd')
+.
+<BLANKLINE>
+qsegfq.
+<BLANKLINE>
+sfdq        :
+<BLANKLINE>
+zegqsdvcqsd  .
+<BLANKLINE>
+?
+<BLANKLINE>
+trevbsqd<EEZADIhd
