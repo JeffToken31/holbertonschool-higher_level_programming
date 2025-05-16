@@ -21,6 +21,15 @@ class TestMaxInteger(unittest.TestCase):
     def test_with_negatif_float(self):
         self.assertEqual(max_integer([-1.2, -2.3, -3.45151651651, -4.5]), -1.2)
 
+    def test_with_identical_values(self):
+        self.assertEqual(max_integer([3, 3, 3, 3]), 3)
+
+    def test_with_single_string(self):
+        self.assertEqual(max_integer(["only"]), "only")
+
+    def test_with_single_float(self):
+        self.assertEqual(max_integer([3.1415]), 3.1415)
+
     def test_with_mixed_allowed_type(self):
         self.assertEqual(max_integer([-1.5654, 0x5f, -0b10101110, 0o66]), 95)
 
@@ -81,6 +90,10 @@ class TestMaxInteger(unittest.TestCase):
     def test_with_None(self):
         with self.assertRaises(TypeError):
             max_integer([-1, 81, None])
+
+    def test_with_invalid_types(self):
+        with self.assertRaises(TypeError):
+            max_integer(["string", 42, 3.14])
 
 
 if __name__ == '__main__':
