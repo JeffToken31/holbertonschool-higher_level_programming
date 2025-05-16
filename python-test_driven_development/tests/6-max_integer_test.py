@@ -30,6 +30,15 @@ class TestMaxInteger(unittest.TestCase):
     def test_with_integer(self):
         self.assertEqual(max_integer([]), "")
 
+    def test_with_empty_tuple(self):
+        self.assertEqual(max_integer(()), None)
+
+    def test_with_empty_dict(self):
+        self.assertEqual(max_integer({}), None)
+
+    def test_with_empty_str(self):
+        self.assertEqual(max_integer([-1, True, False]), True)
+
     def test_with_integer(self):
         self.assertEqual(max_integer([-1, True, False]), True)
 
@@ -39,6 +48,10 @@ class TestMaxInteger(unittest.TestCase):
     def test_with_listinlist(self):
         with self.assertRaises(TypeError):
             max_integer([[1, 2, 4], 2.3, 3.4, 4.5])
+
+    def test_integer_without_list(self):
+        with self.assertRaises(TypeError):
+            max_integer(1, 5)
 
     def test_with_tuple(self):
         with self.assertRaises(TypeError):
