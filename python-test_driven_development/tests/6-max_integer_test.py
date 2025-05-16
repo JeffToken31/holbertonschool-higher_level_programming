@@ -9,7 +9,7 @@ class TestMaxInteger(unittest.TestCase):
     def test_with_integer(self):
         self.assertEqual(max_integer([1, 2, 3, 4]), 4)
 
-    def testwith_negativ_integer(self):
+    def test_with_negativ_integer(self):
         self.assertEqual(max_integer([-1, -2, -3, -400000]), -1)
 
     def test_with_max_integer(self):
@@ -27,6 +27,12 @@ class TestMaxInteger(unittest.TestCase):
     def test_with_str(self):
         self.assertEqual(max_integer(["abc", "bac", "cadadada", "dac"]), "dac")
 
+    def test_with_integer(self):
+        self.assertEqual(max_integer([]), "")
+
+    def test_with_integer(self):
+        self.assertEqual(max_integer([-1, True, False]), True)
+
     def test_not_equal(self):
         self.assertNotEqual(max_integer(["a", "b", "c", "d"]), 3)
 
@@ -41,6 +47,10 @@ class TestMaxInteger(unittest.TestCase):
     def test_with_dict(self):
         with self.assertRaises(TypeError):
             max_integer([{'hello': 2, 'bonjour': 6}, 2.3, 3.4, 4.5])
+
+    def test_with_None(self):
+        with self.assertRaises(TypeError):
+            max_integer([-1, 81, None])
 
 
 if __name__ == '__main__':
