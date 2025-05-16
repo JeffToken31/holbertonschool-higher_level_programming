@@ -28,7 +28,7 @@ class TestMaxInteger(unittest.TestCase):
         self.assertEqual(max_integer(["abc", "bac", "cadadada", "dac"]), "dac")
 
     def test_with_integer(self):
-        self.assertEqual(max_integer([]), "")
+        self.assertEqual(max_integer([]), None)
 
     def test_with_empty_tuple(self):
         self.assertEqual(max_integer(()), None)
@@ -45,7 +45,7 @@ class TestMaxInteger(unittest.TestCase):
     def test_with_specialsChar(self):
         self.assertEqual(max_integer("$*ù^àç!:;,?."), 'ù')
 
-    def test_with_bool(self):
+    def test_with_multiple_specialChar(self):
         self.assertEqual(max_integer(["$*ù^à", "ç!:;,?."]), 'ç!:;,?.')
 
     def test_with_bool(self):
