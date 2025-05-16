@@ -105,3 +105,8 @@ TypeError: text must be a string
 
 text_indentation("without ponctuation")
 without ponctuation
+
+>>> text_indentation("lkerjfmoaeidhvfomekjflùkqsjdf!lkmjùpze.zec_hzidsuchmoaz")
+lkerjfmoaeidhvfomekjflùkqsjdf!lkmjùpze.
+
+zec_hzidsuchmoaz
