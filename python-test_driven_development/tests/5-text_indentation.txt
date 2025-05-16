@@ -11,6 +11,9 @@ two:
 three.
 <BLANKLINE>
 
+>>> text_indentation("Hello 'man'")
+Hello 'man'
+
 >>> text_indentation(56)
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
