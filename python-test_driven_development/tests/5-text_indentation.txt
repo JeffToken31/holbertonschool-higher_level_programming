@@ -79,3 +79,14 @@ TypeError: text must be a string
 .
 <BLANKLINE>
 Hello "boss
+
+>>> text_indentation(""".Hello "boss""" + "salut")
+.
+<BLANKLINE>
+Hello "bosssalut
+
+>>> text_indentation(("hello"))
+hello
+
+>>> text_indentation("56")
+56
