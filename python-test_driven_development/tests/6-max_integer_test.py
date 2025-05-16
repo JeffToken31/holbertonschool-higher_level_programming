@@ -37,9 +37,18 @@ class TestMaxInteger(unittest.TestCase):
         self.assertEqual(max_integer({}), None)
 
     def test_with_empty_str(self):
-        self.assertEqual(max_integer([-1, True, False]), True)
+        self.assertEqual(max_integer(""), None)
 
-    def test_with_integer(self):
+    def test_with_char(self):
+        self.assertEqual(max_integer("Hello"), "o")
+
+    def test_with_specialsChar(self):
+        self.assertEqual(max_integer("$*ù^àç!:;,?."), 'ù')
+
+    def test_with_bool(self):
+        self.assertEqual(max_integer(["$*ù^à", "ç!:;,?."]), 'ç!:;,?.')
+
+    def test_with_bool(self):
         self.assertEqual(max_integer([-1, True, False]), True)
 
     def test_not_equal(self):
