@@ -58,6 +58,14 @@ class TestMaxInteger(unittest.TestCase):
         with self.assertRaises(TypeError):
             max_integer([[1, 2, 4], 2.3, 3.4, 4.5])
 
+    def test_integer_with_dict(self):
+        with self.assertRaises(KeyError):
+            max_integer({"test": 685, "hello": 9.5, 'BONjour': -8652})
+
+    def test_integer_with_diferents_type(self):
+        with self.assertRaises(TypeError):
+            max_integer(1, 5)
+
     def test_integer_without_list(self):
         with self.assertRaises(TypeError):
             max_integer(1, 5)
