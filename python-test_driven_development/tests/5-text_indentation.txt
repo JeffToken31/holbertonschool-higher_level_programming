@@ -75,13 +75,7 @@ Traceback (most recent call last):
     raise TypeError("text must be a string")
 TypeError: text must be a string
 
->>> text_indentation(""".Hello "boss"""")
-  File "<stdin>", line 1
-    text_indentation(""".Hello "boss"""")
-                                         ^
-SyntaxError: unterminated string literal (detected at line 1)
-
 >>> text_indentation(""".Hello "boss""")
 .
-
+<BLANKLINE>
 Hello "boss
