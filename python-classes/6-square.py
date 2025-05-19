@@ -6,9 +6,21 @@ This module Allow to learn POO with class
 
 class Square:
     """
-    Define a class named Square
+    Define a class named Square by its size and position
     """
     def __init__(self, size=0, position=(0, 0)):
+        """
+        Initialize a square by a size and position given
+        args:
+            size(int): to define size of square
+            positon(tuple): to define a position with x and y values
+        raises:
+            TypeError: (
+                        if size isn't an integer
+                        or position haven't a valid tuple
+                        )
+            ValueErroe: if size is less than 0
+        """
         if not isinstance(size, int):
             raise TypeError("size must be an integer")
         elif size < 0:
@@ -28,16 +40,27 @@ class Square:
             self.__position = position
 
     def area(self):
+        """
+        Return area of square
+        """
         return self.__size * self.__size
 
     @property
     def size(self):
+        """
+        Get the size of square
+        """
         return self.__size
 
     @size.setter
     def size(self, value):
         """
-        Setter
+        Set a size of square
+        args:
+            value(int): to define size of square
+        raises:
+            TypeError: if value is an integer
+            ValueErroe: if value is less than 0
         """
         if not isinstance(value, int):
             raise TypeError("size must be an integer")
@@ -48,12 +71,19 @@ class Square:
 
     @property
     def position(self):
+        """
+        Get the position x and y of square
+        """
         return self.__position
 
     @position.setter
     def position(self, value):
         """
-        Setter
+        Set a position of square
+        args:
+            value(tuple): to define the position x and y of square
+        raises:
+            TypeError: if value isn't a tuple with two positifs integer
         """
         if (
             not isinstance(value, tuple)
@@ -68,6 +98,10 @@ class Square:
             self.__position = value
 
     def my_print(self):
+        """
+        Print a square made of hash at psition given:
+        Verticaly by adding new lines and Honrizontaly by addig new spaces
+        """
         if self.__size == 0:
             print()
         else:
