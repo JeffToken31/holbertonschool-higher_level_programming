@@ -105,7 +105,15 @@ class Rectangle:
             i = 0
             while i < self.height:
                 new_str += "#" * self.width
-                if i != self.__height - 1:
-                    new_str += "\n"
+                new_str += "\n"
                 i += 1
             return new_str
+
+    def __repr__(self):
+        """
+        Return a rectangle made of hashes
+        """
+        if self.__width == 0 or self.__height == 0:
+            return ""
+        else:
+            return "Rectangle({}, {})".format(self.__height, self.__width)
