@@ -8,6 +8,8 @@ class Rectangle:
     """
     Define a class named Rectangle
     """
+    number_of_instances = 0
+
     def __init__(self, width=0, height=0):
         """
         Initialize a rectangle by a width and height given
@@ -31,6 +33,7 @@ class Rectangle:
             raise ValueError("height must be >= 0")
         else:
             self.__height = height
+        Rectangle.number_of_instances += 1
 
     @property
     def width(self):
@@ -124,3 +127,4 @@ class Rectangle:
         Delete last rectangle and print a message
         """
         print("Bye rectangle...")
+        Rectangle.number_of_instances -= 1
