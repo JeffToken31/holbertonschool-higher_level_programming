@@ -105,7 +105,8 @@ class Rectangle:
             i = 0
             while i < self.height:
                 new_str += "#" * self.width
-                new_str += "\n"
+                if i != self.height - 1:
+                    new_str += "\n"
                 i += 1
             return new_str
 
@@ -116,4 +117,4 @@ class Rectangle:
         if self.__width == 0 or self.__height == 0:
             return ""
         else:
-            return "Rectangle({}, {})".format(self.__height, self.__width)
+            return "Rectangle({}, {})".format(self.__width, self.__height)
