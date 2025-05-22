@@ -114,10 +114,10 @@ class Square:
         """
         Return a rectangle made of hashes
         """
-        new_str = "\n" * self.position[1]
+        new_str = "\n" * self.__position[1]
         for i in range(self.__size):
-            new_str += " " * self.position[0]
-            new_str += "#" * self.size
-            if i != self.size - 1:
+            new_str += " " * self.__position[0]
+            new_str += "#" * self.__size
+            if i != self.__size - 1:
                 new_str += "\n"
         return new_str
