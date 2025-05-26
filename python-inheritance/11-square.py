@@ -15,6 +15,9 @@ class BaseGeometry:
         raise Exception("area() is not implemented")
 
     def integer_validator(self, name, value):
+        """
+        Check if instance is an integer non negative
+        """
         if type(value) is not int:
             raise TypeError("{} must be an integer".format(name))
         if value <= 0:
@@ -63,29 +66,23 @@ class Rectangle(BaseGeometry):
         return new_str
 
 
-class Square(BaseGeometry):
+class Square(Rectangle):
     """
     inheritance class of BaseGeometry
     """
     def __init__(self, size):
         """
-        Initialize a square by a size given
+        Initialize a rectangle by a width and height given
         args:
-            size(int): to define size of the size
-        raises:
-            TypeError: if width and height aren't an integer
-            ValueErro: if size is less than 0
+            size(int): to define width of the rectangle
         """
-        if type(size) is not int:
-            raise TypeError("width must be an integer")
-        elif size < 0:
-            raise ValueError("width must be >= 0")
-        else:
-            self.__size = size
+        self.integer_validator("size", size)
+        super().__init__(size, size)
+        self.__size = size
 
     def area(self):
         """
-        Define area of the square
+        Return area of square
         """
         return self.__size * self.__size
 
