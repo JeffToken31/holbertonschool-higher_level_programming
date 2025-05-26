@@ -14,3 +14,5 @@ Test my function with integer(negatives and positives numbers)
 [4, -6, 0, 999]
 >>> list.print_sorted()
 [-6, 0, 4, 999]
+>>> print(list)
+[4, -6, 0, 999]
