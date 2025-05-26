@@ -4,6 +4,8 @@ Test my function with integer(negatives and positives numbers)
 >>> list = my_list()
 >>> print(list)
 []
+>>> list.print_sorted()
+[]
 >>> list.append(4)
 >>> list.append(-6)
 >>> list.append(0)
