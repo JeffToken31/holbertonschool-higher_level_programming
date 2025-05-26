@@ -2,6 +2,8 @@
 """
 Module to print detailed object
 """
+
+
 def lookup(obj):
     """
     Return details of object
