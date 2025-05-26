@@ -88,3 +88,10 @@ class Square(BaseGeometry):
         Define area of the square
         """
         return self.__size * self.__size
+
+    def __str__(self):
+        """
+        Format a description of object
+        """
+        new_str = "[Square] " + str(self.__size) + "/" + str(self.__size)
+        return new_str
