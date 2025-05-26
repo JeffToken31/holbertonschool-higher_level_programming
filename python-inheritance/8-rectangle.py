@@ -31,20 +31,8 @@ class Rectangle(BaseGeometry):
         args:
             width(int): to define width of the rectangle
             height(int): to define height of the rectangle
-        raises:
-            TypeError: if width and height aren't an integer
-            ValueErro: if size is less than 0
         """
-        if self.integer_validator("width", width):
-            raise TypeError("{} must be an integer".format(width))
-        elif width < 0:
-            raise ValueError("{} must be greater than 0".format(width))
-        else:
-            self.__width = width
-
-        if self.integer_validator("height", height):
-            raise TypeError("{} must be an integer".format(height))
-        elif height < 0:
-            raise ValueError("{} must be greater than 0".format(height))
-        else:
-            self.__height = height
+        self.integer_validator("width", width)
+        self.__width = width
+        self.integer_validator("height", height)
+        self.__height = height

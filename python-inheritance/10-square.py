@@ -67,21 +67,17 @@ class Square(BaseGeometry):
     """
     inheritance class of BaseGeometry
     """
-    def __init__(self, size):
+    def __init__(self, width, height):
         """
-        Initialize a square by a size given
+        Initialize a rectangle by a width and height given
         args:
-            size(int): to define size of the size
-        raises:
-            TypeError: if width and height aren't an integer
-            ValueErro: if size is less than 0
+            width(int): to define width of the rectangle
+            height(int): to define height of the rectangle
         """
-        if type(size) is not int:
-            raise TypeError("width must be an integer")
-        elif size < 0:
-            raise ValueError("width must be >= 0")
-        else:
-            self.__size = size
+        self.integer_validator("width", width)
+        self.__width = width
+        self.integer_validator("height", height)
+        self.__height = height
 
     def area(self):
         """
