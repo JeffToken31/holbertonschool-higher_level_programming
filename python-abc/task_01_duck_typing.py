@@ -1,9 +1,13 @@
 #!/usr/bin/python3
-from abc import ABC, abstractmethod
-from math import pi
 """
 This module use duck typing concept to create subclasses and adapted methods
 """
+
+
+from abc import ABC, abstractmethod
+from math import pi
+
+
 class Shape(ABC):
     """
     Mother class to def methods for subclasses
@@ -22,6 +26,7 @@ class Shape(ABC):
         """
         pass
 
+
 class Circle(Shape):
     """
     Circular object class
@@ -31,53 +36,57 @@ class Circle(Shape):
             raise TypeError("{} must be an integer".format(radius))
         if radius <= 0:
             raise ValueError("{} must be greater than 0".format(radius))
-        self.__radius = radius
+        self.radius = radius
 
     def area(self):
         """
         Define area of a circle
         """
-        return (self.__radius * self.__radius) * pi
-    
+        return (self.radius * self.radius) * pi
+
     def perimeter(self):
         """
         Define area of a circle
         """
-        return (2 * self.__radius) * pi
-    
+        return (2 * self.radius) * pi
+
+
 class Rectangle(Shape):
     """
     Rectancle object class
     """
     def __init__(self, width=0, height=0):
         """
-        Inisilize a Rectancle
+        Inicialize a Rectancle
         """
         if type(width) is not int:
             raise TypeError("{} must be an integer".format(width))
         if width <= 0:
             raise ValueError("{} must be greater than 0".format(width))
-        self.__width = width
+        self.width = width
 
         if type(height) is not int:
             raise TypeError("{} must be an integer".format(height))
         if height <= 0:
             raise ValueError("{} must be greater than 0".format(height))
-        self.__height = height
-
+        self.height = height
 
     def area(self):
         """
         Define area of a rectangle
         """
-        return self.__width * self.__height
-    
+        return self.width * self.height
+
     def perimeter(self):
         """
         Define area of a rectangle
         """
-        return (self.__width * 2) + (self.__height * 2)
+        return (self.width * 2) + (self.height * 2)
+
 
 def shape_info(obj):
+    """
+    Keep info of method area and perimeter
+    """
     print("Area: {}".format(obj.area()))
     print("Perimeter: {}".format(obj.perimeter()))
