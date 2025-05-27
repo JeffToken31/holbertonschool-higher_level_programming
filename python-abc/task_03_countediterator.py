@@ -14,7 +14,7 @@ class CountedIterator():
         """
         self.item = item
         self.iterator = iter(item)
-        self.count = 1
+        self.count = 0
 
     def get_count(self):
         """
