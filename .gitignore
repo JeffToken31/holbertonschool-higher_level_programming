@@ -174,4 +174,4 @@ cython_debug/
 .pypirc
 
 # Python main
-*main.py
+*main*
