@@ -32,10 +32,9 @@ class Circle(Shape):
     Circular object class
     """
     def __init__(self, radius=0):
-        if type(radius) is not int:
-            raise TypeError("{} must be an integer".format(radius))
-        if radius <= 0:
-            raise ValueError("{} must be greater than 0".format(radius))
+        """
+        Inicialize a Rectancle
+        """
         self.radius = radius
 
     def area(self):
@@ -59,16 +58,7 @@ class Rectangle(Shape):
         """
         Inicialize a Rectancle
         """
-        if type(width) is not int:
-            raise TypeError("{} must be an integer".format(width))
-        if width <= 0:
-            raise ValueError("{} must be greater than 0".format(width))
         self.width = width
-
-        if type(height) is not int:
-            raise TypeError("{} must be an integer".format(height))
-        if height <= 0:
-            raise ValueError("{} must be greater than 0".format(height))
         self.height = height
 
     def area(self):
