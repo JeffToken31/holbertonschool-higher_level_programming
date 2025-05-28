@@ -33,9 +33,9 @@ class Circle(Shape):
     """
     def __init__(self, radius=0):
         """
-        Inicialize a Rectancle
+        Initialize a circle
         """
-        self.radius = radius
+        self.radius = abs(radius)
 
     def area(self):
         """
@@ -56,7 +56,7 @@ class Rectangle(Shape):
     """
     def __init__(self, width=0, height=0):
         """
-        Inicialize a Rectancle
+        Initialize a Rectangle
         """
         self.width = width
         self.height = height
@@ -76,7 +76,7 @@ class Rectangle(Shape):
 
 def shape_info(obj):
     """
-    Keep info of method area and perimeter
+    Keep info of method area and perimeter duck typing
     """
     print("Area: {}".format(obj.area()))
     print("Perimeter: {}".format(obj.perimeter()))

@@ -31,9 +31,6 @@ class Rectangle(BaseGeometry):
     def __init__(self, width, height):
         """
         Initialize a rectangle by a width and height given
-        args:
-            width(int): to define width of the rectangle
-            height(int): to define height of the rectangle
         """
         self.integer_validator("width", width)
         self.__width = width
@@ -60,9 +57,7 @@ class Square(Rectangle):
     """
     def __init__(self, size):
         """
-        Initialize a rectangle by a width and height given
-        args:
-            size(int): to define width of the rectangle
+        Initialize a square by a size given
         """
         self.integer_validator("size", size)
         super().__init__(size, size)

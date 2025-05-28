@@ -5,6 +5,8 @@ Traceback (most recent call last):
  ...
 Exception: area() is not implemented
 
+>>> geo.integer_validator("name", 4)
+
 >>> geo.integer_validator("name", "John")
 Traceback (most recent call last):
 ...
