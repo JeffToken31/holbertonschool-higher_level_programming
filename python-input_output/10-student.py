@@ -22,18 +22,10 @@ class Student:
         with attributs desired for a json serialization
         """
         new_dict = {}
-        good_order = ["age", "last_name", "first_name"]
         if attrs is None:
-            for key in good_order:
-                new_dict[key] = self.__dict__[key]
-            return new_dict
-
+            return self.__dict__
         for attr in attrs:
             if type(attr) is str:
                 if hasattr(self, attr):
                     new_dict[attr] = getattr(self, attr)
-
-        sorted_dict = {}
-        for key in sorted(new_dict):
-            sorted_dict[key] = new_dict[key]
-        return sorted_dict
+        return new_dict
