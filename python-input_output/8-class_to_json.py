@@ -2,7 +2,6 @@
 """
 This module is use to return a dict for a json serailisation
 """
-import json
 
 
 def class_to_json(obj):
