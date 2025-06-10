@@ -24,6 +24,16 @@ class Handler(BaseHTTPRequestHandler):
             data = {"name": "John", "age": 30, "city": "New York"}
             self.wfile.write(dumps(data).encode("utf-8"))
 
+        elif self.path == "/info":
+            self.send_response(200)
+            self.send_header("Content-Type", "application/json")
+            self.end_headers()
+            data = {
+                "version": "1.0", 
+                "description": "A simple API built with http.server"
+                }
+            self.wfile.write(dumps(data).encode("utf-8"))
+
         elif self.path == '/status':
             self.send_response(200)
             self.send_header("Content-Type", "application/json")
@@ -31,13 +41,13 @@ class Handler(BaseHTTPRequestHandler):
             self.wfile.write("OK".encode('utf-8'))
 
         else:
-            self.send_response(404)
+            self.send_response(404, "Not found")
             self.send_header("Content-Type", "application/json")
             self.end_headers()
-            self.wfile.write("Not found".encode("utf-8"))
+            self.wfile.write("Endpoint not found".encode("utf-8"))
 
 
 if __name__ == "__main__":
-    print("server lauched")
+    print("server launched")
     server = HTTPServer(("localhost", 8000), Handler)
     server.serve_forever()
