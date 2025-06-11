@@ -32,3 +32,6 @@ def check_pass(username, password):
 @auth.login_required
 def login():
     return "Basic Auth: Access Granted"
+
+if __name__ == "__main__":
+    app.run()
