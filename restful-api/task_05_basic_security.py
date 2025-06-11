@@ -57,7 +57,7 @@ def login_jwt():
 @app.route('/jwt-protected', methods=["GET"])
 @jwt_required()
 def jwt_protected():
-    return jsonify({"JWT Auth": "Access Granted"})
+    return "JWT Auth: Access Granted"
 
 
 @app.route('/admin-only', methods=["GET"])
@@ -68,9 +68,9 @@ def access_admin():
         return jsonify({"error": "Invalid token"}), 401
 
     if users[current_user]["role"] != "admin":
-        return jsonify({"Admin Access": "Forbidden"}), 403
+        return jsonify({"error": "Admin access required"}), 403
 
-    return jsonify({"Admin Access": "Granted"})
+    return "Admin Access: Granted"
 
 
 @jwt.unauthorized_loader
