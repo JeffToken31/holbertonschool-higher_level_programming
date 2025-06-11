@@ -30,7 +30,7 @@ def home():
 
 @app.route("/data")
 def get_users():
-    return jsonify(list(users))
+    return jsonify(list(users.keys()))
 
 
 @app.route("/status")
