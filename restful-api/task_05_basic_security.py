@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-This module 
+This module... 
 """
 from flask import Flask, jsonify, request
 from flask_httpauth import HTTPBasicAuth
@@ -62,7 +62,7 @@ def access_admin():
         return jsonify({"error": "Invalid token"}), 401
 
     if users[current_user]["role"] != "admin":
-        return jsonify({"Admin Access": "Forbiden"})
+        return jsonify({"Admin Access": "Forbiden"}), 403
 
     return jsonify({"Admin Access": "Granted"})
 
