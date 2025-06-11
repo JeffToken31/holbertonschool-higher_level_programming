@@ -43,9 +43,15 @@ def login():
 def login_jwt():
     username = request.json.get("username")
     password = request.json.get("password")
+
+    if not username or not password:
+        return jsonify({"message": "username and password required"}), 400
+
     if check_pass(username, password):
         access_token = create_access_token(identity=username)
-        return jsonify(access_token=access_token)
+        return jsonify(access_token=access_token), 200
+    else:
+        return jsonify({"message": "Invalid username or password"}), 401
 
 
 @app.route('/jwt-protected', methods=["GET"])
@@ -62,7 +68,7 @@ def access_admin():
         return jsonify({"error": "Invalid token"}), 401
 
     if users[current_user]["role"] != "admin":
-        return jsonify({"Admin Access": "Forbiden"}), 403
+        return jsonify({"Admin Access": "Forbidden"}), 403
 
     return jsonify({"Admin Access": "Granted"})
 
