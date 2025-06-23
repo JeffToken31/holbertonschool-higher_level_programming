@@ -1,8 +1,32 @@
 {
-    "github.copilot.enable": {
-        "*": false,
-        "plaintext": false,
-        "markdown": false,
-        "scminput": false
-    }
+  "github.copilot.enable": {
+    "*": false,
+    "plaintext": false,
+    "markdown": false,
+    "scminput": false
+  },
+  "python.linting.enabled": true,
+  "python.linting.pycodestyleEnabled": true,
+  "python.linting.pylintEnabled": false,
+  "python.linting.flake8Enabled": false,
+  "python.linting.mypyEnabled": false,
+  "python.linting.pycodestyleArgs": [
+    "--max-line-length=100"
+  ],
+  "python.defaultInterpreterPath": "/usr/bin/python3",
+  "terminal.integrated.fontFamily": "Terminess Nerd Font Mono",
+  "[sql]": {
+    "editor.defaultFormatter": "adpyke.vscode-sql-formatter",
+    "editor.formatOnSave": true
+  },
+  "sql-formatter.config": {
+    "keywordCase": "upper",
+    "identifierCase": "preserve",
+    "language": "mysql"
+  },
+  "sql-formatter.uppercase": true,
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": true,
+  "editor.formatOnType": true,
+  "sql-formatter.linesBetweenQueries": 1
 }
