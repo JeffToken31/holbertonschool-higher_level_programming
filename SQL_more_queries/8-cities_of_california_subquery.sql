@@ -5,7 +5,7 @@ SELECT
 FROM
     cities
 WHERE
-    name = (
+    state_id = (
         SELECT
             id
         FROM
