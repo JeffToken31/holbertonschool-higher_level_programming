@@ -8,6 +8,9 @@ import sys
 
 
 def main():
+    """
+    lists all states which begin by N
+    """
 
     if len(sys.argv) != 4:
         print("Incorrecte call to scripts")
