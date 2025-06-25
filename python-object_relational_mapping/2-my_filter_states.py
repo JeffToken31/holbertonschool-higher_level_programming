@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """
 This module use mysqldb to connect with database
-It lists all states which begin by N
+it allow to user to shearch states by argument
 """
 import MySQLdb as ms
 import sys
@@ -9,7 +9,7 @@ import sys
 
 def main():
 
-    if len(sys.argv) != 4:
+    if len(sys.argv) != 5:
         print("Incorrecte call to scripts")
         return 1
 
@@ -26,7 +26,10 @@ def main():
         return 1
 
     cur = db.cursor()
-    cur.execute("SELECT * FROM states WHERE name LIKE 'N%' ORDER BY states.id ASC")
+    cur.execute(
+        "SELECT * FROM states WHERE states.name = '{}'"
+        "ORDER BY states.id ASC".format(sys.argv[4])
+        )
 
     rows = cur.fetchall()
 
