@@ -9,10 +9,6 @@ import sys
 
 def main():
 
-    if len(sys.argv) != 5:
-        print("Incorrecte call to scripts")
-        return 1
-
     try:
         db = ms.connect(
             host="localhost",
