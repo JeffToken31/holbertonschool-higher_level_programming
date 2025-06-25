@@ -24,7 +24,7 @@ def main():
         return 1
 
     cur = db.cursor()
-    cur.execute("SELECT * FROM states ORDER BY states.id")
+    cur.execute("SELECT * FROM states ORDER BY states.id ASC")
 
     rows = cur.fetchall()
 
