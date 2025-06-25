@@ -26,7 +26,7 @@ def main():
         return 1
 
     cur = db.cursor()
-    cur.execute("SELECT * FROM states WHERE name LIKE 'N%' ORDER BY states.id ASC")
+    cur.execute("SELECT * FROM states WHERE name LIKE 'N%' ORDER BY states.id")
 
     rows = cur.fetchall()
 
