@@ -16,7 +16,17 @@ if __name__ == "__main__":
     Session = sessionmaker(engine)
 
     country = State(name="Louisiana")
+    louisiana = "Louisiana"
 
     with Session() as session:
         session.add(country)
         session.commit()
+        row = session.query(
+            State).filter(
+                State.name.like(
+                    louisiana)).order_by(
+                        State.id).first()
+        if row is None:
+            print("Not found")
+        else:
+            print("{}".format(row.id))
