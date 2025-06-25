@@ -9,6 +9,10 @@ import sys
 
 def main():
 
+    if len(sys.argv) != 5:
+        print("Incorrecte call to scripts")
+        return 1
+
     try:
         db = ms.connect(
             host="localhost",
@@ -23,8 +27,8 @@ def main():
 
     cur = db.cursor()
     cur.execute(
-        "SELECT * FROM states WHERE states.name = '{}'"
-        "ORDER BY states.id ASC".format(sys.argv[4])
+        "SELECT * FROM states WHERE name = '{}'"
+        "ORDER BY id ASC".format(sys.argv[4])
         )
 
     rows = cur.fetchall()
