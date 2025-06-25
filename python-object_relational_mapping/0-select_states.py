@@ -5,6 +5,7 @@ This module use mysqldb to connect with database
 import MySQLdb as ms
 import sys
 
+
 def main():
 
     if len(sys.argv) != 4:
@@ -13,11 +14,11 @@ def main():
 
     try:
         db = ms.connect(
-            host = "localhost",
-            port = 3306,
-            user = sys.argv[1],
-            password = sys.argv[2],
-            database = sys.argv[3]
+            host="localhost",
+            port=3306,
+            user=sys.argv[1],
+            password=sys.argv[2],
+            database=sys.argv[3]
         )
     except ms.MySQLError as e:
         print("connection failed: {}".format(e))
@@ -33,6 +34,7 @@ def main():
 
     cur.close()
     db.close()
+
 
 if __name__ == '__main__':
     main()
