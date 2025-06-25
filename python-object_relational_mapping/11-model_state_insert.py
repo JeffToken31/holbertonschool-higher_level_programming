@@ -20,8 +20,3 @@ if __name__ == "__main__":
     with Session() as session:
         session.add(country)
         session.commit()
-        rows = session.query(
-            State).order_by(
-                    State.id).all()
-        for state in rows:
-            print("{}: {}".format(state.id, state.name))
