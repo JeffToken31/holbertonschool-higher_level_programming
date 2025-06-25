@@ -18,6 +18,12 @@ if __name__ == "__main__":
     country = str(sys.argv[4])
 
     with Session() as session:
-        rows = session.query(State).filter(State.name.like(country)).order_by(State.id).all()
-        for state in rows:
-            print("{}".format(state.id))
+        row = session.query(
+            State).filter(
+                State.name.like(
+                    country)).order_by(
+                        State.id).first()
+        if row is None:
+            print("Not found")
+        else:
+            print("{}".format(row.id))
