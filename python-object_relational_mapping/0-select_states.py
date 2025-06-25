@@ -5,23 +5,34 @@ This module use mysqldb to connect with database
 import MySQLdb as ms
 import sys
 
+def main():
 
+    if len(sys.argv) != 4:
+        print("Incorrecte call to scripts")
+        return 1
 
-db = ms.connect(
-    host = "localhost",
-    port = 3306,
-    user = sys.argv[1],
-    password = sys.argv[2],
-    database = sys.argv[3]
-)
+    try:
+        db = ms.connect(
+            host = "localhost",
+            port = 3306,
+            user = sys.argv[1],
+            password = sys.argv[2],
+            database = sys.argv[3]
+        )
+    except ms.MySQLError as e:
+        print("connection failed: {}".format(e))
+        return 1
 
-cur = db.cursor()
-cur.execute("SELECT * FROM states ORDER BY states.id")
+    cur = db.cursor()
+    cur.execute("SELECT * FROM states ORDER BY states.id")
 
-rows = cur.fetchall()
+    rows = cur.fetchall()
 
-for row in rows:
-    print(row)
+    for row in rows:
+        print(row)
 
-cur.close()
-db.close()
+    cur.close()
+    db.close()
+
+if __name__ == '__main__':
+    main()
