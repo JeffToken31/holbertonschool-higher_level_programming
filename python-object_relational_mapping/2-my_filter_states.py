@@ -13,10 +13,6 @@ if __name__ == '__main__':
     with a guard for sql injection
     """
 
-    if len(sys.argv) != 5:
-        print("Incorrecte call to scripts")
-        sys.exit(1)
-
     try:
         db = MySQLdb.connect(
             host="localhost",
