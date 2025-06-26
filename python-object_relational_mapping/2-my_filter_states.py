@@ -17,17 +17,13 @@ if __name__ == '__main__':
         print("Incorrecte call to scripts")
         exit()
 
-    try:
-        db = MySQLdb.connect(
-            host="localhost",
-            port=3306,
-            user=sys.argv[1],
-            password=sys.argv[2],
-            database=sys.argv[3]
-        )
-    except MySQLdb.MySQLError as e:
-        print("connection failed: {}".format(e))
-        exit()
+    db = MySQLdb.connect(
+        host="localhost",
+        port=3306,
+        user=sys.argv[1],
+        password=sys.argv[2],
+        database=sys.argv[3]
+    )
 
     cur = db.cursor()
     cur.execute(
