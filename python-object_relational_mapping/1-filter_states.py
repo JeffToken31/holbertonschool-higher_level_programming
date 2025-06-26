@@ -29,7 +29,12 @@ def main():
         return 1
 
     cur = db.cursor()
-    cur.execute("SELECT * FROM states WHERE name LIKE 'N%' ORDER BY states.id")
+    cur.execute("""
+                SELECT * FROM states
+                WHERE BINARY name
+                LIKE 'N%'
+                ORDER BY states.id
+                """)
 
     rows = cur.fetchall()
 
@@ -41,4 +46,5 @@ def main():
 
 
 if __name__ == "__main__":
+
     main()

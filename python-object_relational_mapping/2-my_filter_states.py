@@ -7,28 +7,32 @@ import sys
 import MySQLdb
 
 
-if __name__ == '__main__':
+def main():
     """
     This function filter keep args to filter states
     with a guard for sql injection
     """
 
     if len(sys.argv) != 5:
-        print("Incorrecte call to scripts")
+        print("Incorrect call to scripts")
         exit()
 
-    db = MySQLdb.connect(
-        host="localhost",
-        port=3306,
-        user=sys.argv[1],
-        password=sys.argv[2],
-        database=sys.argv[3]
-    )
+    try:
+        db = MySQLdb.connect(
+            host="localhost",
+            port=3306,
+            user=sys.argv[1],
+            password=sys.argv[2],
+            database=sys.argv[3]
+        )
+    except MySQLdb.MySQLError as e:
+        print("connection failed: {}".format(e))
+        exit()
 
     cur = db.cursor()
     cur.execute(
         """
-        SELECT * FROM states WHERE name = '{}'
+        SELECT * FROM states WHERE BINARY name = '{}'
         ORDER BY states.id ASC;
         """.format(sys.argv[4])
         )
@@ -36,7 +40,11 @@ if __name__ == '__main__':
     rows = cur.fetchall()
 
     for row in rows:
-        print("{}".format(row))
+        print(row)
 
     cur.close()
     db.close()
+
+
+if __name__ == '__main__':
+    main()
