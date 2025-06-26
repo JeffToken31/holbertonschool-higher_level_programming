@@ -7,11 +7,15 @@ import MySQLdb as ms
 import sys
 
 
-def main():
+if __name__ == '__main__':
+    """
+    This function filter keep args to filter states
+    with a guard for sql injection
+    """
 
     if len(sys.argv) != 5:
         print("Incorrecte call to scripts")
-        return 1
+        sys.exit(1)
 
     try:
         db = ms.connect(
@@ -23,7 +27,7 @@ def main():
         )
     except ms.MySQLError as e:
         print("connection failed: {}".format(e))
-        return 1
+        sys.exit(1)
 
     cur = db.cursor()
     cur.execute(
@@ -38,7 +42,3 @@ def main():
 
     cur.close()
     db.close()
-
-
-if __name__ == '__main__':
-    main()
