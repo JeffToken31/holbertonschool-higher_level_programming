@@ -3,8 +3,8 @@
 This module use mysqldb to connect with database
 it allow to user to shearch states by argument
 """
-import MySQLdb
 import sys
+import MySQLdb
 
 
 if __name__ == '__main__':
@@ -12,6 +12,10 @@ if __name__ == '__main__':
     This function filter keep args to filter states
     with a guard for sql injection
     """
+
+    if len(sys.argv) != 5:
+        print("Incorrecte call to scripts")
+        exit()
 
     try:
         db = MySQLdb.connect(
@@ -23,7 +27,7 @@ if __name__ == '__main__':
         )
     except MySQLdb.MySQLError as e:
         print("connection failed: {}".format(e))
-        sys.exit(1)
+        exit()
 
     cur = db.cursor()
     cur.execute(
