@@ -21,4 +21,4 @@ if __name__ == "__main__":
                 City.state_id == State.id).order_by(
                     City.id).all()
         for state, city in rows:
-            print("{}:({}) {}".format(state.name, city.id, city.name))
+            print("{}: ({}) {}".format(state.name, city.id, city.name))
