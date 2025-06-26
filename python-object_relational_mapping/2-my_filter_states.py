@@ -3,7 +3,7 @@
 This module use mysqldb to connect with database
 it allow to user to shearch states by argument
 """
-import MySQLdb as ms
+import MySQLdb
 import sys
 
 
@@ -18,14 +18,14 @@ if __name__ == '__main__':
         sys.exit(1)
 
     try:
-        db = ms.connect(
+        db = MySQLdb.connect(
             host="localhost",
             port=3306,
             user=sys.argv[1],
             password=sys.argv[2],
             database=sys.argv[3]
         )
-    except ms.MySQLError as e:
+    except MySQLdb.MySQLError as e:
         print("connection failed: {}".format(e))
         sys.exit(1)
 
@@ -42,4 +42,5 @@ if __name__ == '__main__':
     for row in rows:
         print("{}".format(row))
 
+    cur.close()
     db.close()
