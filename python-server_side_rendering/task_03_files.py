@@ -31,7 +31,6 @@ def products():
     if not source or source not in ("json", "csv"):
         return render_template("product_display.html", error="Wrong source")
 
-
     id = request.args.get("id")
     products = []
     try:
