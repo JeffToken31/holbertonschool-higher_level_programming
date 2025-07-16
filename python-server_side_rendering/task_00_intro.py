@@ -1,5 +1,7 @@
 from jinja2 import Environment, select_autoescape
 
+def get_value(attendee, key):
+    return attendee.get(key) if attendee.get(key) not in [None, ""] else "N/A"
 
 def generate_invitations(template, attendees):
     """
@@ -31,11 +33,12 @@ def generate_invitations(template, attendees):
     my_template = env.from_string(template)
 
     for idx, attendee in enumerate(attendees, start=1):
+        
         context = {
-            "name": attendee.get("name") or "N/A",
-            "event_title": attendee.get("event_title") or "N/A",
-            "event_date": attendee.get("event_date") or "N/A",
-            "event_location": attendee.get("event_location") or "N/A"
+            "name": get_value(attendee, "name"),
+            "event_title": get_value(attendee, "event_title"),
+            "event_date": get_value(attendee, "event_date"),
+            "event_location": get_value(attendee, "event_location")
         }
         text = my_template.render(context)
         
