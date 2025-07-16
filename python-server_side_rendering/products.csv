@@ -1,0 +1,25 @@
+id,name,category,price
+1,Laptop,Electronics,799.99
+2,Smartphone,Electronics,599.99
+3,Headphones,Electronics,129.99
+4,Smartwatch,Electronics,199.99
+5,Bluetooth Speaker,Electronics,89.99
+6,Tablet,Electronics,349.99
+7,Coffee Mug,Home Goods,15.99
+8,Throw Pillow,Home Goods,24.99
+9,Wall Clock,Home Goods,39.99
+10,Table Lamp,Home Goods,49.99
+11,Picture Frame,Home Goods,12.99
+12,Candles,Home Goods,9.99
+13,Running Shoes,Sportswear,89.99
+14,Yoga Mat,Sportswear,29.99
+15,Water Bottle,Sportswear,19.99
+16,Fitness Tracker,Sportswear,59.99
+17,Gym Bag,Sportswear,34.99
+18,Sports Towel,Sportswear,14.99
+19,Novel Book,Books,22.99
+20,Cookbook,Books,27.99
+21,Travel Guide,Books,18.99
+22,Children's Story,Books,13.99
+23,Science Textbook,Books,49.99
+24,Comic Book,Books,9.99
