@@ -1,7 +1,8 @@
 from jinja2 import Environment, select_autoescape
 
 def get_value(attendee, key):
-    return attendee.get(key) if attendee.get(key) not in [None, ""] else "N/A"
+    value = attendee.get(key, None)
+    return value if value not in [None, ""] else "N/A"
 
 def generate_invitations(template, attendees):
     """
