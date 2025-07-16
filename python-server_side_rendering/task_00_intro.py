@@ -1,52 +1,33 @@
-from jinja2 import Environment, select_autoescape
+import os
 
 def get_value(attendee, key):
     value = attendee.get(key, None)
     return value if value not in [None, ""] else "N/A"
 
 def generate_invitations(template, attendees):
-    """
-    This function genere an invitation for each attendee
-    """
-    env = Environment(
-    autoescape=select_autoescape(enabled_extensions=('html', 'htm', 'xml'), default_for_string=True, default=True,)
-)
-    try:
-        if not isinstance(template, str):
-            raise TypeError('template must be a string')
-        if not isinstance(attendees, list):
-            raise TypeError('template must be a list')   
-        for attendee in attendees:
-            if not isinstance(attendee, dict):
-                raise TypeError('attendees must be a dict')
-    except TypeError as e:
-        print({"error": {e}})
+    if not isinstance(template, str):
+        print("Error: Template must be a string.")
         return
-    try:
-        if not template:
-            raise ValueError('template is empty')
-        if not attendees:
-            raise ValueError('list is empty')
-    except ValueError as e:
-        print({"error": {e}})
+    if not isinstance(attendees, list) or not all(isinstance(a, dict) for a in attendees):
+        print("Error: Attendees must be a list of dictionaries.")
         return
-    
-    my_template = env.from_string(template)
+    if not template:
+        print("Template is empty, no output files generated.")
+        return
+    if not attendees:
+        print("No data provided, no output files generated.")
+        return
 
     for idx, attendee in enumerate(attendees, start=1):
-        
-        context = {
-            "name": get_value(attendee, "name"),
-            "event_title": get_value(attendee, "event_title"),
-            "event_date": get_value(attendee, "event_date"),
-            "event_location": get_value(attendee, "event_location")
-        }
-        text = my_template.render(context)
-        
-        filename = "output_{}.txt".format(idx)
+        output = template
+        output = output.replace("{name}", get_value(attendee, "name"))
+        output = output.replace("{event_title}", get_value(attendee, "event_title"))
+        output = output.replace("{event_date}", get_value(attendee, "event_date"))
+        output = output.replace("{event_location}", get_value(attendee, "event_location"))
 
+        filename = f"output_{idx}.txt"
         try:
             with open(filename, "w", encoding="utf-8") as f:
-                f.write(text)
+                f.write(output)
         except Exception as e:
-            print({"error": {e}})
+            print(f"Error writing file {filename}: {e}")
