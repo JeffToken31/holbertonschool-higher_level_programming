@@ -1,11 +1,6 @@
 from flask import Flask, render_template, request
 from flask_sqlalchemy import SQLAlchemy
 import json, csv
-import os
-
-db_path = os.path.join(os.path.abspath(os.path.dirname(__file__)), 'products.db')
-print("DB PATH:", db_path)
-print("File exists:", os.path.exists(db_path))
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////home/jeff/holbertonschool-higher_level_programming/python-server_side_rendering/products.db'
