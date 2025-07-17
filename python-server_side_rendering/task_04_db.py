@@ -1,20 +1,10 @@
 from flask import Flask, render_template, request
-from flask_sqlalchemy import SQLAlchemy
 import json, csv
-import os
+import os, sqlite3
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.dirname(os.path.realpath(__file__)) +  '/products.db'
 
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-db = SQLAlchemy(app)
-
-class Product(db.Model):
-    __tablename__ = 'Products'
-    id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.Text, nullable=False)
-    category = db.Column(db.Text, nullable=False)
-    price = db.Column(db.Float, nullable=False)
+db_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'products.db')
 
 filePathCSV = "products.csv"
 filePathjson = "products.json"
@@ -56,10 +46,12 @@ def products():
             with open(filePathCSV, 'r', encoding='utf-8') as f:
                 products = list(csv.DictReader(f))
         elif source == "sql":
-            products = [
-                {"id": p.id, "name": p.name, "category": p.category, "price": p.price}
-                for p in Product.query.all()
-            ]
+            conn = sqlite3.connect('products.db')
+            conn.row_factory = sqlite3.Row
+            cursor = conn.cursor()
+            cursor.execute("SELECT * FROM Products")
+            rows = cursor.fetchall()
+            products = [dict(row) for row in rows]
 
         if not id:
             return render_template('product_display.html', products=products)
