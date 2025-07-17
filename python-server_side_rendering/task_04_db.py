@@ -3,7 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 import json, csv
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////home/jeff/holbertonschool-higher_level_programming/python-server_side_rendering/products.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////products.db'
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
